@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="get-factorial">Calculate Factorial</button>
+	<button id="button">Req</button>
+	<div id="text"></div>
+	<div id="factorial" style="color: red"></div>
+	<script>
+		var responded = 0;
+		var $text = document.getElementById('text');
+		var $factorial = document.getElementById('factorial');
+		var $button = document.getElementById('button');
+		var $getFactorial = document.getElementById('get-factorial');
+
+		$getFactorial.addEventListener('click', function(){
+			fetch('/factorial').then(function(res){
+				return res.text();
+			}).then(function(text){
+				$factorial.innerText = text;
+			});
+		});
+
+		$button.addEventListener('click', function(){
+			fetch('/info').then(function(res){
+				responded++;
+				$text.innerText = responded;
+			})
+		})
+
+	</script>
+</body>
+</html>
