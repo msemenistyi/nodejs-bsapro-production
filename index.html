@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="button">Send</button>
+	<div id="text"></div>
+	<script>
+		var $text = document.getElementById('text');
+		var $button = document.getElementById('button');
+
+		$button.addEventListener('click', function(){
+			fetch('/info');
+			fetch('/info');
+			fetch('/info');
+			fetch('/info');
+			fetch('/info');
+			fetch('/info').then(function(res){
+				return res.text();
+			}).then(function(text){
+				$text.innerText = text;
+			});
+		})
+
+	</script>
+</body>
+</html>
